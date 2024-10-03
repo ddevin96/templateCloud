@@ -2,4 +2,4 @@ define_plugin templatecloud
 
 enable_service templatecloud
 
-TEMPLATECLOUD_DIR=$DEST/templatecloud
+TEMPLATECLOUD_DIR=$DEST/templatecloud/templatecloud
