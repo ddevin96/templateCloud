@@ -6,6 +6,7 @@ function install_template {
 
 function init_template {
     echo_summary "init template"
+    echo "templatecloud plugin work" > templateplugin.log
 }
 
 function configure_template {
@@ -50,4 +51,3 @@ if is_service_enabled templatecloud; then
     fi
 fi
 
-echo "templatecloud plugin work" > templateplugin.log
