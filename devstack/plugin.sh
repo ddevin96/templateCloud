@@ -2,19 +2,18 @@
 
 function install_template {
     echo_summary "install template"
-    echo "templatecloud plugin work install" >> templateplugin.log
-
+    python $TEMPLATECLOUD_DIR/start.py
 }
 
 function init_template {
     echo_summary "init template"
     echo "templatecloud plugin work init" >> templateplugin.log
-    python ../start.py
+    python $TEMPLATECLOUD_DIR/start.py
 }
 
 function configure_template {
     echo_summary "configuring template"
-    echo "templatecloud plugin work template" >> templateplugin.log
+    python $TEMPLATECLOUD_DIR/start.py
 }
 
 # check for service enabled
