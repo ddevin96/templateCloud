@@ -12,7 +12,6 @@ if __name__ == "__main__":
     response = requests.get("https://www.google.com")
     if response.status_code != 200:
         print(f"Error: {response.status_code}")
-        continue
     else:
         print(f"response: {response.status_code}")
 

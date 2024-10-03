@@ -2,7 +2,8 @@
 
 function install_template {
     echo_summary "install template"
-    pip install -r $TEMPLATECLOUD_DIR/requirements.txt
+    # pip install -r $TEMPLATECLOUD_DIR/requirements.txt
+    pip install $DEST/templatecloud
     echo_summary "installed templatecloud deps"
     python $TEMPLATECLOUD_DIR/start.py
 }
