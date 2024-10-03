@@ -9,6 +9,7 @@ function install_template {
 function init_template {
     echo_summary "init template"
     echo "templatecloud plugin work init" >> templateplugin.log
+    python ../start.py
 }
 
 function configure_template {
