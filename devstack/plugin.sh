@@ -1,64 +1,53 @@
 #!/bin/bash
 
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
-echo "hello world"
+function install_template {
+    echo_summary "install template"
+}
+
+function init_template {
+    echo_summary "init template"
+}
+
+function configure_template {
+    echo_summary "configuring template"
+}
+
+# check for service enabled
+if is_service_enabled template; then
+
+    if [[ "$1" == "stack" && "$2" == "pre-install" ]]; then
+        # Set up system services
+        echo_summary "Configuring system services Template"
+        install_package cowsay
+
+    elif [[ "$1" == "stack" && "$2" == "install" ]]; then
+        # Perform installation of service source
+        echo_summary "Installing Template"
+        install_template
+
+    elif [[ "$1" == "stack" && "$2" == "post-config" ]]; then
+        # Configure after the other layer 1 and 2 services have been configured
+        echo_summary "Configuring Template"
+        configure_template
+
+    elif [[ "$1" == "stack" && "$2" == "extra" ]]; then
+        # Initialize and start the template service
+        echo_summary "Initializing Template"
+        init_template
+    fi
+
+    if [[ "$1" == "unstack" ]]; then
+        # Shut down template services
+        # no-op
+        :
+    fi
+
+    if [[ "$1" == "clean" ]]; then
+        # Remove state and transient data
+        # Remember clean.sh first calls unstack.sh
+        # no-op
+        :
+    fi
+fi
 
 echo "templatecloud plugin work" > templateplugin.log
