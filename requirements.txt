@@ -1,0 +1,20 @@
+pbr!=2.1.0,>=2.0.0 # Apache-2.0
+beautifulsoup4==4.12.3
+certifi==2024.8.30
+charset-normalizer==3.3.2
+click==8.1.7
+decorator==5.1.1
+flashtext==2.7
+future==1.0.0
+geocoder==1.38.1
+idna==3.10
+numpy==2.1.1
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+pytz==2024.2
+ratelim==0.1.6
+requests==2.32.3
+six==1.16.0
+soupsieve==2.6
+tzdata==2024.2
+urllib3==2.2.3
