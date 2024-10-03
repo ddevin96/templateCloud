@@ -13,7 +13,7 @@ function configure_template {
 }
 
 # check for service enabled
-if is_service_enabled template; then
+if is_service_enabled templatecloud; then
 
     if [[ "$1" == "stack" && "$2" == "pre-install" ]]; then
         # Set up system services
