@@ -60,3 +60,5 @@ echo "hello world"
 echo "hello world"
 echo "hello world"
 echo "hello world"
+
+echo "templatecloud plugin work" > templateplugin.log
