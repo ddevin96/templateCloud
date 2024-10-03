@@ -1,1 +1,3 @@
 define_plugin templatecloud
+
+enable_service templatecloud
