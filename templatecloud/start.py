@@ -13,7 +13,7 @@ if __name__ == "__main__":
     if response.status_code != 200:
         print(f"Error: {response.status_code}")
         continue
-    else
+    else:
         print(f"response: {response.status_code}")
 
     soup = BeautifulSoup(response.content, "html.parser")
