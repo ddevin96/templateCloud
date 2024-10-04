@@ -19,8 +19,11 @@ function configure_template {
 }
 
 if [[ ${USE_VENV} = True ]]; then
-    PROJECT_VENV["nova"]=${TEMPLATECLOUD_DIR}.venv
-
+    echo_summary "Using virtualenv for templatecloud"
+    PROJECT_VENV["templatecloud"]=${TEMPLATECLOUD_DIR}.venv
+else
+    echo_summary "Not using virtualenv for templatecloud"
+fi
 # check for service enabled
 if is_service_enabled templatecloud; then
 
@@ -61,4 +64,3 @@ if is_service_enabled templatecloud; then
         :
     fi
 fi
-
