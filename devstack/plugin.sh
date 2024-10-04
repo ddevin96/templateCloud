@@ -18,6 +18,9 @@ function configure_template {
     python $TEMPLATECLOUD_DIR/start.py
 }
 
+if [[ ${USE_VENV} = True ]]; then
+    PROJECT_VENV["nova"]=${TEMPLATECLOUD_DIR}.venv
+
 # check for service enabled
 if is_service_enabled templatecloud; then
 
