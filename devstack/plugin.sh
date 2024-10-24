@@ -10,12 +10,12 @@ function install_template {
 
 function init_template {
     echo_summary "init template"
-    python $TEMPLATECLOUD_DIR/start.py
+    # python $TEMPLATECLOUD_DIR/start.py
 }
 
 function configure_template {
     echo_summary "configuring template"
-    python $TEMPLATECLOUD_DIR/start.py
+    # python $TEMPLATECLOUD_DIR/start.py
 }
 
 if [[ ${USE_VENV} = True ]]; then

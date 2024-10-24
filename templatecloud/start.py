@@ -24,7 +24,7 @@ def list_servers():
 def start_flask_server():
     try:   
         print("start flask server")
-        http_server = WSGIServer(('0.0.0.0', 9696), app)
+        http_server = WSGIServer(('0.0.0.0', 5234), app)
         http_server.serve_forever()
     except Exception as e:
         print("Error in starting Flask server")
