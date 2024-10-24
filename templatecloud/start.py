@@ -20,15 +20,15 @@ def run_flask():
     print("Starting Flask server")
     app.run(host="0.0.0.0", port=9696)
     print("Flask server stopped")
-    
+
 # Initialize and authenticate the connection
 def create_openstack_connection():
     conn = openstack.connect(
         auth_url='http://172.16.15.101:5000/v3',
-        project_name='cc',
+        project_name='service',
         username='admin',
         password='abc',
-        region_name='Default',
+        region_name='RegionOne',
         user_domain_name='Default',
         project_domain_name='Default'
     )
