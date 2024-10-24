@@ -1,12 +1,11 @@
 [Unit]
-Description=Open stack plugin
-After=network.target
+Description=OpenStack
 
 [Service]
-User=stack   # Change to the user that should run the app
-Group=stack     # Change to the group that should run the app
-WorkingDirectory=$TEMPLATECLOUD_DIR
-ExecStart=/usr/bin/python3 $TEMPLATECLOUD_DIR/start.py
+User=stack
+Group=stack
+WorkingDirectory=/home/ostack/openstack/templateCloud/devstack
+ExecStart=/usr/bin/python3 /home/ostack/openstack/templateCloud/devstack/start.py
 
 Restart=always
 RestartSec=5
