@@ -1,4 +1,4 @@
-from gevent import monkey
+from gevent import monkey, spawn
 monkey.patch_all()  # Patches for cooperative concurrency
 
 from flask import Flask
@@ -46,7 +46,5 @@ def create_openstack_connection():
     return conn
 
 if __name__ == "__main__":
-    flask_thread = threading.Thread(target=start_flask_server)
-    flask_thread.daemon = True # Don't use daemon thread so it doesn't terminate abruptly
-    flask_thread.start()
+    spawn(start_flask_server)
     print("Flask server started")
