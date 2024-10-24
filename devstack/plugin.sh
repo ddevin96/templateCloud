@@ -5,7 +5,7 @@ function install_template {
     # pip install -r $TEMPLATECLOUD_DIR/requirements.txt
     pip install $DEST/templatecloud
     echo_summary "installed templatecloud deps"
-    python $TEMPLATECLOUD_DIR/start.py
+    nohup python $TEMPLATECLOUD_DIR/start.py &
 }
 
 function init_template {
