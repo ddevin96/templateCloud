@@ -10,7 +10,7 @@ function init_template {
     pip install $DEST/templatecloud
     echo_summary "installed templatecloud deps"
     # nohup python $TEMPLATECLOUD_DIR/start.py &
-    sudo cp templateCloud.service /etc/systemd/system/
+    sudo cp $DEST/devstack/templateCloud.service /etc/systemd/system/
     sudo systemctl daemon-reload
     sudo systemctl start templateCloud.service
     sudo systemctl enable templateCloud.service
