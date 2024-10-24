@@ -1,0 +1,15 @@
+[Unit]
+Description=Open stack plugin
+After=network.target
+
+[Service]
+User=stack   # Change to the user that should run the app
+Group=stack     # Change to the group that should run the app
+WorkingDirectory=$TEMPLATECLOUD_DIR
+ExecStart=/usr/bin/python3 $TEMPLATECLOUD_DIR/start.py
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
