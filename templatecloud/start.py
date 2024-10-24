@@ -22,9 +22,12 @@ def list_servers():
         print(server)
 
 def start_flask_server():
-    print("start flask server")
-    http_server = WSGIServer(('0.0.0.0', 9696), app)
-    http_server.serve_forever()
+    try:   
+        print("start flask server")
+        http_server = WSGIServer(('0.0.0.0', 9696), app)
+        http_server.serve_forever()
+    except Exception as e:
+        print("Error in starting Flask server")
     print("Flask server sstop")
 
 # Initialize and authenticate the connection
