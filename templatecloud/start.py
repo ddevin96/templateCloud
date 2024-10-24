@@ -12,7 +12,9 @@ def hello_world():
 
 @app.route('/servers')
 def list_servers():
+    print("Listing servers")
     conn = create_openstack_connection()
+    print("Connection created")
     for server in conn.compute.servers():
         print(server)
 
@@ -23,6 +25,7 @@ def run_flask():
 
 # Initialize and authenticate the connection
 def create_openstack_connection():
+    print("Creating OpenStack connection")
     conn = openstack.connect(
         auth_url='http://172.16.15.101:5000/v3',
         project_name='service',
@@ -32,6 +35,7 @@ def create_openstack_connection():
         user_domain_name='Default',
         project_domain_name='Default'
     )
+    print(conn)
     return conn
 
 if __name__ == "__main__":
