@@ -44,6 +44,6 @@ def create_openstack_connection():
 
 if __name__ == "__main__":
     flask_thread = threading.Thread(target=start_flask_server)
-    flask_thread.daemon = False  # Don't use daemon thread so it doesn't terminate abruptly
+    flask_thread.daemon = True # Don't use daemon thread so it doesn't terminate abruptly
     flask_thread.start()
     print("Flask server started")
