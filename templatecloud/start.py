@@ -1,7 +1,10 @@
-import os
-import threading
-from time import time
+from gevent import monkey
+monkey.patch_all()  # Patches for cooperative concurrency
+
 from flask import Flask
+from gevent.pywsgi import WSGIServer
+import threading
+import time
 
 
 app = Flask(__name__)
@@ -18,16 +21,17 @@ def list_servers():
     for server in conn.compute.servers():
         print(server)
 
-def run_flask():
-    print("Starting Flask server")
-    app.run(host="0.0.0.0", port=9696)
-    print("Flask server stopped")
+def start_flask_server():
+    print("start flask server")
+    http_server = WSGIServer(('0.0.0.0', 9696), app)
+    http_server.serve_forever()
+    print("Flask server sstop")
 
 # Initialize and authenticate the connection
 def create_openstack_connection():
     print("Creating OpenStack connection")
     conn = openstack.connect(
-        auth_url='http://172.16.15.101:5000/v3',
+        auth_url='http://172.16.15.101/identity',
         project_name='service',
         username='admin',
         password='abc',
@@ -39,7 +43,7 @@ def create_openstack_connection():
     return conn
 
 if __name__ == "__main__":
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.daemon = True
+    flask_thread = threading.Thread(target=start_flask_server)
+    flask_thread.daemon = False  # Don't use daemon thread so it doesn't terminate abruptly
     flask_thread.start()
     print("Flask server started")
