@@ -17,8 +17,10 @@ def list_servers():
         print(server)
 
 def run_flask():
+    print("Starting Flask server")
     app.run(host="0.0.0.0", port=9696)
-
+    print("Flask server stopped")
+    
 # Initialize and authenticate the connection
 def create_openstack_connection():
     conn = openstack.connect(
@@ -34,4 +36,6 @@ def create_openstack_connection():
 
 if __name__ == "__main__":
     flask_thread = threading.Thread(target=run_flask)
-    # flask_thread.start()
+    flask_thread.daemon = True
+    flask_thread.start()
+    print("Flask server started")
