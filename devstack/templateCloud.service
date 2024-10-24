@@ -4,8 +4,8 @@ Description=OpenStack
 [Service]
 User=stack
 Group=stack
-WorkingDirectory=/home/ostack/openstack/templateCloud/devstack
-ExecStart=/usr/bin/python3 /home/ostack/openstack/templateCloud/devstack/start.py
+WorkingDirectory=$TEMPLATECLOUD_DIR
+ExecStart=/usr/bin/python3 $TEMPLATECLOUD_DIR/start.py
 
 Restart=always
 RestartSec=5
