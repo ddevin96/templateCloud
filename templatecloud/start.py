@@ -26,7 +26,7 @@ def create_openstack_connection():
         project_name='cc',
         username='admin',
         password='abc',
-        region_name='<region-name>',
+        region_name='Default',
         user_domain_name='Default',
         project_domain_name='Default'
     )
