@@ -31,7 +31,7 @@ def start_flask_server():
 def create_openstack_connection():
     print("Creating OpenStack connection")
     conn = openstack.connect(
-        auth_url='http://172.16.15.101/identity',
+        auth_url='http://172.16.15.101:5000/v3',
         project_name='service',
         username='admin',
         password='abc',
